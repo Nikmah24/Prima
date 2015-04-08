@@ -1,0 +1,52 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int i, j, min, max, jum=0, total=0;
+    bool prima;
+
+    cout << "Masukkan nilai batas bawah: ";
+    cin >> min;
+    cout << "Masukkan nilai batas atas: ";
+    cin >> max;
+
+    while (min > max)
+    {
+        cout << "\n\nBatas atas harus lebih besar dari batas bawah.\nMasukkan nilai batas atas: ";
+        cin >> max;
+    }
+    cout << endl;
+
+    for (i=min;i<=max;i++)
+    {
+        prima=false;
+        if (i==2)
+            prima=true;
+        else
+            {
+                for (j=2;j<i;j++)
+                {
+                    if (i % j==0)
+                    {
+                        prima=false;
+                        break;
+                    }
+                    else
+                        prima=true;
+                }
+            }
+        if (prima)
+        {
+            cout << i << "\t";
+            jum+=1;
+            total+=i;
+        }
+    }
+    cout << endl;
+
+    cout.setf(ios::fixed);
+    cout.setf(ios::showpoint);
+    cout.precision(2);
+
+}
